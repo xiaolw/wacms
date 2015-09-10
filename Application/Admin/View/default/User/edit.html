@@ -1,0 +1,166 @@
+<extend name="Public/sysindex"/>
+
+<block name="script">
+    <script type="text/javascript" src="__ADMIN__/css/sb-admin.css"></script>
+</block>
+<block name="body">
+<div id="main">
+
+<!-- 内容 -->
+<div id="page-wrapper">
+  <div class="container-fluid"> 
+    
+    <!-- 顶部导航 -->
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header"> 编辑资料</h1><br />
+      </div>
+    </div>
+    <!-- 顶部导航 -->
+      <!-- 错误提示 -->
+       <div id="alerts" class=" fixed alert alert-warning" role="alert"  style="display: none;">
+                <button class="close fixed" style="margin-top: 3px;">&times;</button>
+                <div class="alert-content">这是内容</div>
+      </div>
+    <!-- 错误提示 --> 
+    <!-- 编辑资料 -->
+    <div class="row">
+      <div class="col-lg-4">
+        <form role="form" action="{:U('User/save')}" >
+        <input id="uid"  type="hidden"  name="uid" value="{:I('uid')}"  />
+          <div class="form-group">
+            <label  data-toggle="tooltip" data-placement="right" title="用户名不可修改">用户名</label>
+            <input class="form-control" name="username" value="{$info.username}" disabled>
+            <p class="help-block"></p>
+          </div>
+          <div class="form-group">
+            <label >常用艺名</label>
+            <input class="form-control" name=name value="{$info.name}" data-toggle="tooltip" data-placement="top" title="如果是乐队请填写乐队名">
+            <p class="help-block"></p>
+          </div>
+          <div class="form-group">
+            <label>地区</label>    
+              {:hook('J_China_City',array('province'=>$info['pos_province'],'city'=>$info['pos_city'],'dselect'=>'form-control'))}
+          </div>
+          <div class="form-group">
+            <label>性别&nbsp;&nbsp;</label>
+           
+            
+            <volist name=":parse_dict_attr('oc_sex')" id="vo">
+                                        
+                                        
+               <label class="radio-inline">
+              <input type="radio" name="sex" id="optionsRadiosInline2" value="{$vo.value}"  <eq name="info.sex" value="$vo.value"> checked</eq>>
+            {$vo.label}</label>
+            </volist>
+        
+          </div>
+          <div class="form-group">
+            <label>角色&nbsp;&nbsp;</label>
+            
+            <volist name=":parse_dict_attr('oc_singer')" id="vo">
+                                        
+                                        
+               <label class="radio-inline">
+              <input type="radio" name="role" id="optionsRadiosInline2" value="{$vo.value}"  <eq name="info.role" value="$vo.value"> checked</eq>>
+            {$vo.label}</label>
+            </volist>
+            
+            
+            
+          </div>
+          <div class="form-group">
+            <label>电话</label>
+            <input class="form-control" name="phone" value="{$info.phone}">
+            <p class="help-block"></p>
+          </div>
+          <div class="form-group">
+            <label>邮箱</label>
+            <input class="form-control" name="email" value="{$info.email}">
+            <p class="help-block"></p>
+          </div>
+          <div class="form-group">
+            <label>签约状态&nbsp;&nbsp;</label>
+            
+            
+            <label class="radio-inline">
+              <input type="radio" name="sign_status" id="indie" value="1" <eq name="info.sign_status" value="1"> checked</eq>>
+              独立音乐人 </label>
+            <label class="radio-inline" data-toggle="tooltip" data-placement="top" title="选择此项请填写您的公司名称">
+              <input type="radio" name="sign_status" id="company" value="2"  <eq name="info.sign_status" value="2"> checked</eq>>
+              厂牌／唱片公司 </label>
+            <input id="company_name" name="company" value="{$info.company}" class="form-control" value="摩登天空" style="display:none">
+            <p class="help-block"></p>
+          </div>
+          <div class="form-group">
+            <label>简介</label>
+            <textarea class="form-control" rows="3" name="summary" >{$info.summary}</textarea>
+          </div>
+          <br />
+          <button id="btn" type="submit" class="btn btn-primary"  data-toggle="tooltip" data-placement="right" title="审核通过才能生效">提交审核</button>
+          <br />
+          <br />
+        </form>
+      </div>
+      <div class="col-lg-8">
+      	
+      </div>
+    </div>
+    <!-- 编辑资料 --> 
+    
+  </div>
+</div>
+<!-- 内容 --> 
+
+
+
+<!-- page --> 
+<script>
+	$(function(){
+		
+		var company_name = $("#company_name");
+		var company = $("#company");
+		var alerts = $("#alerts")
+		$("#indie").on("click", function(){
+			company_name.hide();
+		})
+		$("#company").on("click", function(){
+			company_name.fadeIn();
+		})
+		
+		
+		if(company.attr("checked")){
+			company_name.fadeIn();
+		}
+		
+		$("form").submit(function(){
+			  var self = $(this);
+
+			
+				$.post(self.attr("action"), self.serialize(), success, "json");
+				return false;
+
+				function success(data){
+					if(data.status){
+						updateAlert(data.info+' 页面即将自动跳转~','success');
+					//	setTimeout(function(){
+							// $('#alerts').find('.close').click();
+					//		window.location.href = data.url;
+				    //      },3500);
+						
+					} else {
+						updateAlert(data.info,'warning');
+						 setTimeout(function(){
+							 $('#alerts').find('.close').click();
+				          },2500);
+					}
+				}
+			
+			
+		})
+		
+	})
+</script> 
+
+</div>
+</block>

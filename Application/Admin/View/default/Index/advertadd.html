@@ -1,0 +1,89 @@
+<!-- 顶部导航 -->
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header"> 发布公告</h1>
+    <br />
+  </div>
+</div>
+<!-- 顶部导航 --> 
+<!-- 错误提示 -->
+<div id="alerts" class="alert alert-warning" role="alert" style="display:none"></div>
+<!-- 错误提示 --> 
+<!-- 编辑资料 -->
+<div class="row">
+  <div class="col-lg-6">
+    <form id="form" role="form">
+      <div class="form-group">
+        <label>标题</label>
+        <input id="old_pwd" class="form-control"  type="text" desc="标题" rule="full" tip="请填写公告标题">
+        <p class="help-block hiddens">请填写公告标题</p>
+      </div>
+      <div class="form-group">
+        <label>公告配图</label>
+        <div class="form-upload">
+        	<div class="upload-body" id="pre_pic" draggable="true" ><h5 class="text-center text-info">可将图片文件拖致此处上传</h5></div>
+            <div class="upload-footer">
+                <input id="song_pic" name="song_pic" type="file" class="file_input" isfull="0" target="#pre_pic" value=""  desc="公告配图">
+        		<p class="help-block pull-left">仅限png、jpg格式， 540px*360px</p>
+                <button type="button" class="btn btn-xs upload_btn btn-primary upload_file" target="#song_pic">上传</button><button type="button" class="btn btn-xs upload_btn btn-default select_file" target="#song_pic">选择文件</button>
+            </div>
+        </div>
+      </div>  
+      <div class="form-group">
+        <label>链接页面</label>
+        <input id="new_pwds" class="form-control" type="text"  desc="链接页面" rule="full" tip="请填写您的链接URL">
+        <p class="help-block  hiddens">请填写您的链接URL</p>
+      </div>
+      <div class="form-group">
+        <label>简介</label>
+        <textarea id="desc" class="form-control" rows="3" data-toggle="tooltip" data-placement="top" title="选填，限制100中文字以内"></textarea>
+      </div>           
+      <br />
+      <button id="btn" type="submit" class="btn btn-primary" data-loading-text="Loading...">提交</button>
+      <br />
+      <br />
+    </form>
+  </div>
+  <div class="col-lg-6"></div>
+</div>
+<!-- 编辑资料 --> 
+
+<!-- page --> 
+<script>
+$(function(){
+
+		var old_pwd = $("#old_pwd");
+		var new_pwd = $("#new_pwd");
+		var new_pwds = $("#new_pwds");
+		var btn = $("#btn");
+		var input = $("input");
+		
+		window.input_focus(input);
+
+		$("#form").on("submit", function(){
+			
+			$("#alerts").hide();	
+			if(!window.input_validate(input)){
+				return false;	
+			}
+			
+			if(new_pwd.val() != new_pwds.val()){
+				window.result(2,"新密码和重复新密码不一致");
+				return false;
+			}
+
+/*			window.btn_submit({
+				"type": "post",
+				"data": {"old_pwd":old_pwd.val(), "new_pwd": old_pwd.val(), "new_pwds":new_pwds.val()},
+				"url":"",
+				"fnSuccess": function(){
+					alert(123123);	
+				}
+			})*/
+
+			return false;
+
+		})
+		
+})
+</script> 

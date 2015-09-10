@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>音乐人合作 - 完善资料</title>
+    <link href="__PUBLIC__/page/css/main.css" rel="stylesheet" type="text/css"/>
+    <script src="__STATIC__/jquery-2.0.3.min.js"></script>
+    <script src="__STATIC__/jquery-migrate-1.2.1.min.js"></script>
+    <script src="__PUBLIC__/admin/js/common.js"></script>
+    <script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+
+</head>
+
+<body>
+<div class="main">
+    <h1 class="title4"> 完善资料<br/>
+    </h1>
+
+    <p class="intro2" style="font-size:18px; color:#666">{:I('username')}：
+        <if condition="$reason eq '' ">恭喜您，已完成激活，请填写以下资料：
+            <else/>
+            资料审核未通过,{$reason}
+        </if>
+    </p>
+    <form action="__SELF__" method="post">
+        <ul class="reg">
+            <li>
+                <input id="uid" type="hidden" name="uid" value="{:I('uid')}"/>
+                <input id="name" class="text" type="text" name="nickname" value="{$info.nickname}" placeholder="艺名" />
+                <span class="tag"></span></li>
+            <li>
+                {:hook('J_China_City',array('province'=>$info['pos_province'],'city'=>$info['pos_city'],'dselect'=>'iselect','district'=>$info['pos_district'],'community'=>$info['pos_community']))}
+                <span class="tag"></span></li>
+            <li>性别：
+
+
+                <input class="iradio" value="1" type="radio" name="sex"
+                <eq name="info.sex" value="1"> checked</eq>
+                />
+                <label class="ilabel">男</label>
+                <input class="iradio" value="2" type="radio" name="sex"
+                <eq name="info.sex" value="2"> checked</eq>
+                />
+                <label class="ilabel">女</label>
+
+
+            </li>
+            <li>角色：
+
+
+                <input class="iradio" value="1" type="radio" name="u_role"
+                <eq name="info.u_role" value="1"> checked</eq>
+                />
+                <label class="ilabel">独立音乐人</label>
+
+                <input class="iradio" value="2" type="radio" name="u_role"
+                <eq name="info.u_role" value="2"> checked</eq>
+                />
+                <label class="ilabel">乐队代表</label>
+            </li>
+            <li>
+                <input id="phone" class="text" type="text" name="tel" value='{$info.tel}' placeholder="电话"/>
+                <span class="tag"></span></li>
+            <li>签约状态：
+                <input class="iradio" type="radio" name="sig_status"
+                <eq name="info.sig_status" value="1"> checked</eq>
+                value="1" id="duli" />
+                <label class="ilabel">独立音乐人</label>
+                <input class="iradio" type="radio" name="sig_status"
+                <eq name="info.sig_status" value="2"> checked</eq>
+                value="2" id="ccompany" />
+                <label class="ilabel">厂牌／唱片公司</label><br/>
+
+                <input id="company" name="company" class="text" type="text" placeholder="输入公司名称" tag="如已签约请填写完整公司名称"
+                       style="margin-top:7px; display:none"/><span class="tag"></span>
+            </li>
+            <li>
+
+                <textarea type="text" name="summary" style="height:140px; width:367px; padding:10px; font-size:18px"
+                          placeholder="简介"></textarea>
+
+
+            </li>
+            <li style="">
+                <!--   -->
+                {:hook('UploadImages',
+                array('name'=>'idcard','value'=>$info['idcard'],'buttonText'=>'上传身份证','selectMultiple'=>'true'))}
+
+                <span style="margin-top:5px; position:relative;">身份证正反面复印件，例如<a id="passcard"
+                                                                                style="color:#093; cursor:pointer">《XXX身份证复印件》</a>，请保证清晰度，png、jpg格式<img
+                        id="passimg" src="__PUBLIC__/page/img/passcard.png"
+                        style=" width:150px; height:200px; position:absolute; left:520px; top:-184px; display:none"/></span>
+
+            </li>
+
+            <li>
+                <input class="btn1 transfrom" type="submit" value="提交"/>
+                <span id="err" class="tag" style="color:red"></span></li>
+
+        </ul>
+    </form>
+    <div class="footer transfrom"><a href="{:U('Member/register')}" title="">注册</a> <a href="{:U('Home/Index/index')}"
+                                                                                       title="">返回首页</a></div>
+</div>
+
+<script>
+    $(function () {
+
+
+        var name = $("#name");
+        var phone = $("#phone");
+        var ccom = $("#ccompany");
+        var com = $("#company");
+        var err = $("#err");
+
+
+        ccom.on("click", function () {
+            com.fadeIn()
+        })
+
+        $("#duli").on("click", function () {
+            com.hide()
+        })
+
+
+        $("#passcard").on("mouseover", function () {
+            $("#passimg").fadeIn();
+        }).on("mouseout", function () {
+            $("#passimg").fadeOut();
+        })
+
+        function popTag(dom, str, color) {
+            var tag = dom.next(".tag");
+            tag.html(str).css("color", color).fadeIn();
+        }
+
+        $("input").on("focus", function () {
+            var that = $(this);
+            that.data("value", that.val());
+            if (that.val() == "") {
+                popTag(that, that.attr("tag"), "#666");
+            }
+        }).on("blur", function () {
+            var that = $(this);
+            if (that.val() != that.data("value")) {
+                that.next(".tag").html("").hide();
+            }
+        })
+
+        $("form").submit(function () {
+
+            err.html("").css("display", "none");
+
+
+            if (name.val() == '') {
+                name.focus();
+                return false;
+            }
+
+            if (phone.val() == '') {
+                phone.focus();
+                return false;
+            }
+
+            if (ccom.prop('checked')) {
+                if (com.val() == '') {
+                    com.focus();
+                    return false;
+                }
+            }
+
+
+            var self = $(this);
+
+
+            $.post(self.attr("action"), self.serialize(), success, "json");
+            return false;
+
+            function success(data) {
+                if (data.status) {
+                    window.location.href = data.url;
+                } else {
+                    self.find("#err").text(data.info).css("display", "inline-block");
+
+                }
+            }
+            return true;
+
+        })
+
+        function errTag(str) {  //错误提示
+            err.html(str).css("display", "inline-block");
+        }
+
+        //errTag("上传图片错误")
+
+    })
+</script>
+</body>
+</html>

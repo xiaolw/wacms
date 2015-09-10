@@ -1,0 +1,407 @@
+/* reset */
+* {
+	margin: 0;
+	padding: 0
+}
+body {
+	font: normal 100% 'Helvetica Neue', 'Arial', 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑';
+	position: relative;
+}
+img {
+	display: block;
+	border: none
+}
+li {
+	list-style: none
+}
+a, span, i {
+	display: inline-block;
+	text-decoration: none;
+	color: inherit
+}
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal
+}
+h1 {
+	font-size: 78px;
+}
+h2 {
+	font-size: 42px
+}
+h3 {
+	font-size: 26px
+}
+h4 {
+	font-size: 20px
+}
+h5 {
+	font-size: 14px
+}
+h6 {
+	font-size: 12px
+}
+.fc1 {
+	color: #FFF
+}
+.fc2 {
+	color: #000
+}
+.fc3 {
+	color: #009933
+}
+audio {
+	display: none
+}
+.transfrom, .transfrom>li, .transfrom>a, .transfrom span, .transfrom a, .transfrom>i, .transfrom>p {
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+ -ms -transition: all 1s;
+	transform: all 1s;
+}
+.warp {
+	width: 100%;
+	position: relative
+}
+.bg1 {
+	background: url(../img/1.jpg) no-repeat center; background-size:cover;
+}
+.bg2 {
+	background: url(../img/2.jpg) no-repeat center; background-size:cover;
+}
+.bg3 {
+	background: url(../img/3.jpg) no-repeat center; background-size:cover;
+}
+.bg4 {
+	background: url(../img/4.jpg) no-repeat center; background-size:cover;
+}
+.bg5 {
+	background: url(../img/5.jpg) no-repeat center; background-size:cover;
+}
+.bg6 {
+	background: url(../img/6.jpg) no-repeat center; background-size:cover;
+}
+/* 翻页按钮 */
+#fp-nav {
+	position: fixed;
+	z-index: 100;
+	margin-top: -32px;
+	top: 50%;
+	opacity: 1;
+}
+#fp-nav.right {
+	right: 25px;
+}
+#fp-nav ul li {
+	display: block;
+	width: 12px;
+	height: 13px;
+	margin: 12px auto;
+	position: relative;
+}
+#fp-nav ul li a {
+	display: block;
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	text-decoration: none;
+}
+#fp-nav ul li a span {
+	top: 3px;
+	left: 3px;
+	width: 6px;
+	height: 6px;
+	border: 1px solid #e7e7e7;
+	background: rgba(0, 0, 0, 0);
+	border-radius: 50%;
+	position: absolute;
+	z-index: 1;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	transform: all 0.5s;
+}
+#fp-nav ul li a span:hover {
+	border: 1px solid #dedede;
+	background: #dedede;
+}
+#fp-nav ul li a.active span {
+	left: 0;
+	top: 0;
+	width: 12px;
+	height: 12px;
+	border: 1px solid #dedede;
+	background: #dedede;
+}
+/* 翻页按钮 */
+.nav {
+	width: 800px;
+	height: 24px;
+	position: absolute;
+	top: 6%;
+	left: 50%;
+	margin-left: -400px;
+	color: #dedede;
+	overflow: hidden;
+}
+.nav>li {
+	float: left;
+	width: 200px;
+	text-align: center;
+}
+.nav>li>a:hover {
+	color: #fff;
+	cursor: pointer
+}
+.btn {
+	height: 60px;
+	width: 700px;
+	position: absolute;
+	top: 44%;
+	left: 50%;
+	margin-left: -350px
+}
+.btn>a {
+	cursor: pointer;
+	border: 2px solid #FFF;
+	width: 260px;
+	height: 56px;
+	line-height: 56px;
+	color: #ccc;
+	text-align: center;
+	font-size: 20px;
+	margin: 0 43px
+}
+.btn>a:hover {
+	background: #333;
+	color: #FFF;
+	border-color: #666
+}
+.lyrics {
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	margin-left: -400px;
+	color: #CCC;
+	font-size: 14px;
+	width: 800px;
+	text-align: center;
+}
+.title1 {
+	position: absolute;
+	height: 100px;
+	width: 800px;
+	text-align: center;
+	left: 50%;
+	top: 36%;
+	margin: 0 0 0 -400px;
+	font-size: 102px
+}
+.intro1 {
+	position: absolute;
+	left: 50%;
+	top: 30%;
+	width: 1000px;
+	margin: 220px 0 0 -500px;
+	font-size: 26px;
+}
+.intro1>p {
+	text-align: center;
+	margin: 10px 0;
+}
+.title2 {
+	position: absolute;
+	height: 160px;
+	line-height: 160px;
+	width: 800px;
+	text-align: center;
+	left: 50%;
+	top: 36%;
+	margin: -10px 0 0 -400px;
+	font-size: 84px;
+}
+.strong {
+	font-size: 200px;
+	display: inline-block;
+	vertical-align: bottom;
+	margin: 0 30px 26px 0;
+}
+.shade {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	opacity:0.5;
+	z-index: 999;
+	display: none
+}
+.dlbg {
+	position: fixed;
+	width: 900px;
+	height: 460px;
+	background: #fff;
+	border-radius: 5px;
+	left: 50%;
+	top: 50%;
+	margin: -230px 0 0 -450px;
+	z-index: 1000;
+	display: none
+}
+.dlbg>div {
+	float: left;
+	margin: 0 24px
+}
+.title3:hover {
+	color: #ccc
+}
+/* 子页 */
+.main {
+	width: 1000px;
+	margin: 0 auto;
+}
+.title4 {
+	font-size: 42px;
+	margin: 90px 0 55px 0;
+	color: #888;
+	line-height: 60px;
+}
+.intro2 {
+	font-size: 22px;
+	margin-bottom: 5px;
+	color: #999;
+}
+.reg {
+	width: 1000px;
+	margin: 60px 0 120px 0;
+}
+.reg>li {
+	margin-bottom: 24px;
+	font-size: 14px;
+	color: #777;
+}
+.reg>li>a {
+	color: #3C6
+}
+.cbox {
+	height: 16px;
+	width: 16px;
+	border: 1px solid #acacac;
+	vertical-align: middle;
+	margin-bottom: 3px
+}
+.tag {
+	color: #666;
+	font-size: 14px;
+	margin-left: 20px;
+	display: none;
+	vertical-align: middle
+}
+.text {
+	height: 50px;
+	border: 1px solid #acacac;
+	width: 390px;
+	font-size: 16px;
+	padding-left: 10px;
+	box-sizing: border-box;
+	font-family: 'Microsoft Yahei';
+	vertical-align: middle
+}
+.btn1 {
+	height: 50px;
+	line-height: 50px;
+	width: 390px;
+	background: #acacac;
+	border: none;
+	color: #FFF;
+	font-size: 18px;
+	letter-spacing: 1px;
+	display: inline-block;
+	vertical-align: middle;
+	font-family: 'Microsoft Yahei'
+}
+.btn1:hover {
+	background: #666
+}
+#ctag {
+	display: none;
+	font-size: 14px;
+	margin-left: 140px;
+	color: #666
+}
+.footer {
+	height: 30px;
+	padding-top: 15px;
+	font-size: 14px;
+	color: #999;
+	border-top: 1px solid #f5f5f5;
+	text-align:right
+}
+.footer>a {
+	margin-left: 20px
+}
+.footer>a:hover{
+	color:#333
+}
+.forgetpwd{
+	font-size:16px; 
+	margin:15px 0;
+	text-align:center;
+	width:390px;
+	color:#666
+}
+.forgetpwd:hover{
+	color:#000
+}
+.intro3{
+	color:#333;
+	margin-bottom:200px
+}
+.title5{
+	display:block;
+}
+.com{
+	font-size:14px;
+	color:#999;
+	margin:8px 0 40px 0
+}
+.content{
+	padding:40px 0;
+	margin:0 auto;
+}
+.content>h1{
+	font-size:24px;
+	text-align:center;
+	padding:10px 0 20px 0;
+	font-weight:bolder
+}
+.content>h2{
+	font-size:18px;
+	padding:10px 0;
+	font-weight:bolder
+}
+.content>p{
+	text-align:justify;
+	font-size:16px;
+	text-indent:2em;
+	line-height:22px;
+	margin:8px 0
+}
+.ilabel{
+	vertical-align:middle;
+	margin:0 4px
+}
+.iradio{
+	vertical-align:middle;
+	margin-left:7px;
+}
+.iselect{
+	height:46px;
+	
+	margin-right:10px;
+	font-size:16px;
+	padding-left:6px;
+	font-family: 'Microsoft Yahei';
+	color:#999
+}

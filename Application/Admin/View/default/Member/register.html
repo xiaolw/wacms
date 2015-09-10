@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>音乐人合作 - 注册</title>
+</head>
+
+
+<body>
+<link href="__PUBLIC__/page/css/main.css" rel="stylesheet" type="text/css" />
+<div class="main">
+  <h1 class="title4"> 欢迎您的加入<br/>
+    我们等您很久了 </h1>
+  <p class="intro2">"让千百双手在我面前挥舞，拥有千百个热情的笑容"</p>
+  <p class="intro2">&nbsp;与上百万独立音乐铁粉，分享您的美妙作品。</p>
+  <form acion="__SELF__">
+    <ul class="reg">
+      <li>
+        <input id="email" class="text" type="text" name="email"  placeholder="邮箱" tag="邮箱不能为空" />
+        <span class="tag"></span></li>
+      <li>
+        <input id="user" class="text" type="text"  name="username"  placeholder="用户名" tag="用户名不能为空。用于个人域名，填写后不可修改。<br />由英文、数字组成，2-15字符。" />
+        <span class="tag"></span> </li>
+      <li>
+        <input id="pwd" class="text" type="password" name="password" placeholder="密码" tag="密码不能为空"/>
+        <span class="tag"></span> </li>
+      <li>
+        <input id="cbox" class="cbox" type="checkbox" checked value="" />
+        我已阅读并同意<a href="{:U('Home/Index/cooperate')}" title="挖哇音乐人合作协议" target="_blank">《挖哇音乐人合作协议》</a><span id="ctag">如同意《挖哇音乐人合作协议》，请勾选选项。</span></li>
+      <li>
+        <input class="btn1 transfrom" type="submit" value="提交注册" />
+        <span id="err" class="tag" style="color:red" ></span> </li>
+        
+           
+        
+         <div class="controls Validform_checktip text-warning" style="color:red"></div>
+    </ul>
+  </form>
+  <div class="footer transfrom"><a href="{:U('Admin/Public/login')}" title="">登陆</a> <a href="{:U('Home/Index/index')}" title="">返回首页</a></div>
+</div>
+
+<script src="__PUBLIC__/page/js/jquery-1.11.1.min.js"></script> 
+<script>
+$(function(){
+	
+	var email = $("#email");
+	var user = $("#user");
+	var cbox = $("#cbox");
+	var pwd =  $("#pwd");
+	var ctag = $("#ctag");
+	var err = $("#err"); 
+	
+	function popTag(dom, str, color){
+		var tag = dom.next(".tag");
+		tag.html(str).css("color",color).fadeIn();
+	}
+
+	$("input").on("focus", function(){
+		var that = $(this);
+		that.data("value",that.val());
+		if(that.val() == ""){
+			popTag(that, that.attr("tag"), "#666");
+		}
+	}).on("blur", function(){
+		var that = $(this);
+		if(that.val() != that.data("value")){
+			that.next(".tag").html("").hide();
+		}		
+	})
+	
+	$("form").submit(function(){
+
+		err.html("").css("display","none");
+		if(email.val() != ''){
+			if(!email.val().match(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/)){
+				popTag(email, "请填写正确邮箱格式", "red");
+				email.focus();
+				return false;
+			}
+		}else{
+			email.focus();
+			return false;
+		}	
+		
+		if(user.val() != ''){
+			if(!user.val().match(/^[a-zA-Z0-9_]{2,20}$/)){
+				popTag(user, "请根据规则填写用户名：由英文、数字组成，2-20字符。", "red");
+				user.focus();
+				return false;
+			}
+		}else{
+			user.focus();
+			return false;
+		}
+		if(pwd.val() == ''){
+			pwd.focus();
+			return false;
+		}
+		
+		if(!cbox.prop('checked')){
+			ctag.fadeIn();
+			return false;
+		}else{
+			ctag.hide()
+		}
+		
+		var self = $(this);
+		
+	     
+		
+		$.post(self.attr("action"), self.serialize(), success, "json");
+		return false;
+		function success(data){
+
+			if(data.status){
+			  	window.location.href = data.url;
+
+			} else {
+				
+				self.find(".Validform_checktip").text(data.info).css("display","inline-block");
+				
+			}
+		}
+	})
+	
+	function errTag(str){  //错误提示
+		err.html(str).css("display","inline-block");
+	}
+	
+	function userTag(str){  //用户名错误提示
+		popTag(user, str, "red");
+	}
+
+	function emailTag(str){  //邮箱提示
+		popTag(email, str, "red");
+	}		
+	
+	//userTag("很抱歉，该用户名已被使用")
+})
+</script>
+
+</body>
+</html>

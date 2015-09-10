@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>音乐人合作</title>
+<link href="__PUBLIC__/page/css/main.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="shade"></div>
+<div class="dlbg">
+	<div><img src="__PUBLIC__/page/img/wawadl.png" /></div>
+    <div><img src="__PUBLIC__/page/img/yuyindl.png" /></div>
+</div>
+<div id="container" class="container">
+  <div class="warp section bg1">
+    <ul class="nav transfrom">
+      <li><a href="" title="关于我们">关于我们</a></li>
+      <li><a href="{:U('Index/cooperate')}" title="合作协议" target="_blank">合作协议</a></li>
+      <li><a title="客户端" id="dl">客户端</a></li>
+      <li><a href="{:U('Admin/Public/login')}" title="登入">登入</a></li>
+    </ul>
+    <div class="btn transfrom"><a href=" {:U('Index/about')}" title="了解音乐人合作">了解音乐人合作</a><a href="{:U('Admin/Member/register')}" title="加入音乐人合作">加入音乐人合作</a></div>
+    <p class="lyrics">但愿总有阳光照进回忆，青春像花永远开在心里 —— 逃跑计划</p>
+  </div>
+  <div class="warp section bg2 fc1">
+    <h1 class="title1">改变，蜕变</h1>
+    <div class="intro1">
+      <p>不只是现场，更是全新的传播方式</p>
+      <p>让你的作品，最美的呈现在最喜爱的用户面前</p>
+      <p>甚至，让现场，跨越地域</p>
+    </div>
+  </div>
+  <div class="warp section bg3">
+    <h1 class="title1">不容，错过</h1>
+    <div class="intro1">
+      <p>移动互联网，数字音乐新机遇</p>
+      <p>挖哇、余音，双产品双平台，只为让传播更具价值</p>
+    </div>
+  </div>
+  <div class="warp section bg4 fc1">
+    <h1 class="title2"><a class="strong">0</a>平台分成</h1>
+    <div class="intro1">
+      <p>播放付费、下载付费、增值付费…</p>
+      <p>让定价权回归音乐人</p>
+    </div>
+  </div>
+  <div class="warp section bg5 fc3">
+    <h1 class="title1">发现，价值</h1>
+    <div class="intro1">
+      <p>与岭南电商学院战略合作，为音乐人打造全套的电子商务产业链和供应链</p>
+      <p>发现音乐之外的商业价值</p>
+    </div>
+  </div>
+  <div class="warp section bg6 fc1">
+    <h1 class="title1">即刻，<a class="title3 transfrom" href="{:U('Ucenter/Member/register')}" title="加入音乐人合作">加入</a></h1>
+  </div>
+</div>
+<script src="__PUBLIC__/page/js/jquery-1.11.1.min.js"></script> 
+<script src="__PUBLIC__/page/js/jquery.fullPage.min.js"></script>
+<script>
+$(function(){
+	var doc = $(document);
+	var shade = $(".shade");
+	$('#container').fullpage({
+		'navigation': true
+	});
+	$("#dl").on("click", function(){
+		shade.show();
+		$(".dlbg").fadeIn()
+	})
+	shade.on("click", function(){
+		$(this).hide();
+		$(".dlbg").fadeOut()	
+	})
+})
+</script>
+</body>
+</html>

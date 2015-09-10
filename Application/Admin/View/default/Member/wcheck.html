@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>音乐人合作 - 等待审核</title>
+<link href="__PUBLIC__/page/css/main.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="shade"></div>
+<div id="cform" style="position: fixed; top:50%; left:50%; width:600px; height:50px; margin:-25px 0 0 -300px; text-align:center; padding:20px; background: #fff; z-index:1000; display:none">
+	<input class="text" type="text" placeholder="输入您要更换的邮箱" />
+    <input class="btn1 transfrom" value="提交" style="display:inline-block; width:96px; margin-left:5px; text-align:center" type="submit" />
+</div>
+<div class="main">
+  <h1 class="title4"><br />等待审核</h1>
+  <p class="intro3"><b class="title5" style="margin-bottom:8px">尊敬的{:I('name')}:</b> 您的资料已经提交，我们会在两个工作日内进行审核，审核结果将发邮件至 <a style="color:#093">{:I('email')}</a> 请注意查收。<br /><br /><br />如有疑问请发邮件至 <a style="color:#093">biz@wawa.fm</a>，感谢您的支持。 </p>  
+  <div class="footer transfrom"> <a href="{:U('Home/Index/index')}" title="">返回首页</a></div>
+</div>
+</body>
+</html>
