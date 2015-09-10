@@ -22,9 +22,8 @@ class IndexController extends AdminController
 
 
     /**
-     * 后台首页
-     * @author 麦当苗儿 <zuojiazi@vip.qq.com>
-     */
+	 * 后台首页
+	 */
     public function index()
     {
 
@@ -72,7 +71,9 @@ class IndexController extends AdminController
     }
 
 
-
+/**
+ * 修改音乐
+ */
     public function trackEdit(){
         if(IS_POST){
 
@@ -82,7 +83,9 @@ class IndexController extends AdminController
     }
 
 
-
+/**
+ * 修改密码
+ */
     public function updatePassword(){
         if(IS_POST){
 
@@ -94,6 +97,9 @@ class IndexController extends AdminController
         }
 
     }
+	
+	
+	
 
 
     public function  test(){

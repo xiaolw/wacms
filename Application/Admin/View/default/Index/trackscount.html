@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="css/daterangepicker-bs3.css" />
+<link rel="stylesheet" href="__PUBLIC__/css/daterangepicker-bs3.css" />
 
 <!-- 下线 -->
 <div class="modal fade bs-example-modal-sm" tabindex="2" role="dialog" aria-labelledby="myLargeModalLabel" id="confirm_modal">
@@ -31,8 +31,7 @@
 
 <div class="row">
   <div class="col-lg-12">
-    <h1 class="page-header">单曲播放量
-        <div class="pull-right" style="width:280px; margin-top:5px;">
+    <h1 class="page-header">歌曲播放量<div class="pull-right" style="width:280px; margin-top:5px;">
     			<form class="form-horizontal">
 						<fieldset>
 							<div class="control-group">
@@ -51,38 +50,28 @@
 							</div>
 						</fieldset>
 					</form>
-          </div>
-    	 <div class="pull-right" style="width:240px; margin-top:5px; margin-right:16px">
-         	<div class="input-prepend input-group">
-                <span class="add-on input-group-addon">
-                    <i class="glyphicon glyphicon-calendar fa fa-music">
-                    </i>
-                </span>
-                <input type="text" class="form-control" value="" placeholder="请输入歌曲名">                                     
-            </div>
-       </div>
-      </h1>
+          </div></h1>
   </div>
 </div>
 
 <div class="row">
   <div class="col-lg-12">
-  	<p style="font-size:12px; color:#999">歌曲<strong style="color:#000;">《我的名字叫做安》</strong> 自 <strong style="color:#000;">2014-03-19</strong> 至 <strong style="color:#000">2015-02-07</strong> 播放量统计数据</p>
+  	<p style="font-size:12px; color:#999">自 <strong style="color:#000;">2014-03-19</strong> 至 <strong style="color:#000">2015-02-07</strong> 歌曲播放量统计数据</p>
     <div class="table-responsive">
       <table class="table table-bordered table-hover table-striped">
         <thead>
           <tr>
-            <th width="70%">日期</th>
+            <th width="70%">歌曲名称</th>
             <th width="30%">播放量</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>2015-09-07</td>        
-            <td>133233 </td>
+            <td>我的名字叫做安</td>        
+            <td>133233 【乐人文章浏览量：23000】</td>
           </tr>
           <tr>
-            <td>2015-09-08</td>        
+            <td>难得</td>        
             <td>763556</td>
           </tr>          
           <tr>
@@ -95,8 +84,8 @@
   </div>
 </div>
 
-<script type="text/javascript" src="js/moment.js"></script>
-<script type="text/javascript" src="js/daterangepicker.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/moment.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/daterangepicker.js"></script>
 <script>
 $(function(){
 		$('#reservation').daterangepicker(null, function(start, end, label) {

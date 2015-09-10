@@ -1,218 +1,203 @@
-<!-- 顶部导航 -->
 <div class="row">
-  <div class="col-lg-12">
-    <h1 class="page-header"> 编辑资料</h1>
-    <br />
-  </div>
+	<div class="col-lg-12">
+		<h1 class="page-header"> 编辑资料</h1>
+		<br />
+	</div>
 </div>
-<!-- 顶部导航 --> 
-<!-- 错误提示 -->
 <div id="alerts" class="alert alert-warning" role="alert" style="display:none"> </div>
-<!-- 错误提示 --> 
-<!-- 编辑资料 -->
 <div class="row">
-  <div class="col-lg-6">
-    <form id="form">
-<!--      <div class="form-group">
-        <label data-toggle="tooltip" data-placement="right" title="用户名不可修改">用户名</label>
-        <input id="username_input" uid="111" class="form-control" value="dokklty" disabled>
-        <p class="help-block"></p>
-      </div>-->
-      <div class="form-group">
-        <label >常用艺名</label>
-        <input id="name_input" class="form-control input" value="小小" rule="full" desc="常用艺名" tip="如果是乐队请填写乐队名">
-        <p class="help-block hiddens">如果是乐队请填写乐队名</p>
-      </div>
-      <div class="form-group">
-        <label>地区</label>
-        <select class="form-control mb5"  id="sheng_input">
-          <option >广东</option>
-        </select>
-        <select class="form-control"  id="shi_input">
-          <option>广州</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>性别&nbsp;&nbsp;</label>
-        <label class="radio-inline">
-          <input  type="radio" name="sex" class="sex_input" value="男" checked="">
-          男 </label>
-        <label class="radio-inline">
-          <input type="radio" name="sex" class="sex_input"  value="女" >
-          女 </label>
-        <label class="radio-inline">
-          <input type="radio" name="sex"  class="sex_input" value="乐队组合" >
-          乐队组合 </label>
-      </div>
-      <div class="form-group">
-        <label>角色&nbsp;&nbsp;</label>
-        <label class="radio-inline">
-          <input type="radio" name="role"  class="role_input"  value="独立音乐人" checked="">
-          独立音乐人 </label>
-        <label class="radio-inline">
-          <input type="radio" name="role"  class="role_input"  value="乐队代表">
-          乐队代表 </label>
-      </div>
-      <div class="form-group">
-        <label>电话</label>
-        <input id="phone_input" class="form-control input" value="1367871002"  rule="phone" desc="电话" tip="仅用于方便联系，我们保证不会泄露您的电话号码">
-        <p class="help-block hiddens">仅用于方便联系，我们保证不会泄露您的电话号码</p>
-      </div>
-      <div class="form-group">
-        <label>邮箱</label>
-        <input id="email_input"  class="form-control input" value="dkko23@163.com"  rule="email" desc="邮箱" tip="请确认邮箱的准确性，审核完成后会以邮件形式通知您">
-        <p class="help-block hiddens">请确认邮箱的准确性，审核完成后会以邮件形式通知您</p>
-      </div>
-      <div class="form-group">
-        <label>签约状态&nbsp;&nbsp;</label>
-        <label class="radio-inline">
-          <input type="radio" class="sign_input" name="sign" id="indie" value="独立音乐人" checked="">
-          独立音乐人 </label>
-        <label class="radio-inline" data-toggle="tooltip" data-placement="top" title="选择此项请填写您的公司名称">
-          <input type="radio" class="sign_input" name="sign" id="companys" value="">
-          厂牌／唱片公司 </label>
-        <input id="company_name" class="form-control input" value="摩登天空" style="display:none">
-        <p class="help-block hiddens"></p>
-      </div>
-      <div class="form-group">
-        <label>简介</label>
-        <textarea id="desc" class="form-control" rows="3" data-toggle="tooltip" data-placement="top" title="选填，限制100中文字以内">爱上一匹野马，可我的家里没有草原</textarea>
-      </div>
-      <br />
-      <button id="btn" type="submit" class="btn btn-warning"  >确认</button>
-      <br />
-      <br />
-    </form>
-  </div>
-  <div class="col-lg-6"></div>
+	<div class="col-lg-6">
+		<form id="form">
+			<div class="form-group">
+				<label>常用艺名</label>
+				<input type="hidden" id="uid" >
+				<input id="nickname" class="form-control input" value="小小" rule="full" desc="常用艺名" tip="如果是乐队请填写乐队名">
+				<p class="help-block hiddens">如果是乐队请填写乐队名</p>
+			</div>
+			<div class="form-group">
+				<label>地区</label>
+				<select class="form-control mb5" id="pos_province">
+					<option>广东</option>
+				</select>
+				<select class="form-control" id="pos_city">
+					<option>广州</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label>性别&nbsp;&nbsp;</label>
+				<label class="radio-inline">
+					<input type="radio" name="sex" class="sex" value="1" checked=""> 男 </label>
+				<label class="radio-inline">
+					<input type="radio" name="sex" class="sex" value="2"> 女 </label>
+				<label class="radio-inline">
+					<input type="radio" name="sex" class="sex" value="0"> 乐队组合 </label>
+			</div>
+			<div class="form-group">
+				<label>角色&nbsp;&nbsp;</label>
+				<label class="radio-inline">
+					<input type="radio" name="role" class="u_role" value="独立音乐人" checked=""> 独立音乐人
+				</label>
+				<label class="radio-inline">
+					<input type="radio" name="role" class="u_role" value="乐队代表"> 乐队代表 
+				</label>
+			</div>
+			<div class="form-group">
+				<label>电话</label>
+				<input id="tel" class="form-control input" value="1367871002" rule="phone" desc="电话" tip="仅用于方便联系，我们保证不会泄露您的电话号码">
+				<p class="help-block hiddens">仅用于方便联系，我们保证不会泄露您的电话号码</p>
+			</div>
+			<div class="form-group">
+				<label>邮箱</label>
+				<input id="email" class="form-control input" value="dkko23@163.com" rule="email" desc="邮箱" tip="请确认邮箱的准确性，审核完成后会以邮件形式通知您">
+				<p class="help-block hiddens">请确认邮箱的准确性，审核完成后会以邮件形式通知您</p>
+			</div>
+			<div class="form-group">
+				<label>签约状态&nbsp;&nbsp;</label>
+				<label class="radio-inline">
+					<input type="radio" class="sig_status" name="sign" id="indie" value="独立音乐人" checked=""> 独立音乐人 </label>
+				<label class="radio-inline" data-toggle="tooltip" data-placement="top" title="选择此项请填写您的公司名称">
+					<input type="radio" class="sig_status" name="sign" id="companys" value=""> 厂牌／唱片公司 </label>
+				<input id="company_name" class="form-control input" value="摩登天空" style="display:none">
+				<p class="help-block hiddens"></p>
+			</div>
+			<div class="form-group">
+				<label>简介</label>
+				<textarea id="signature" class="form-control" rows="3" data-toggle="tooltip" data-placement="top" title="选填，限制100中文字以内">爱上一匹野马，可我的家里没有草原</textarea>
+			</div>
+			<br />
+			<button id="btn" type="submit" class="btn btn-warning">确认</button>
+			<br />
+			<br />
+		</form>
+	</div>
+	<div class="col-lg-6"></div>
 </div>
-<!-- 编辑资料 --> 
-
-<!-- 确认框 -->
 <div class="modal fade" tabindex="2" role="dialog" aria-labelledby="myLargeModalLabel" id="check_form">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header" >
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">个人资料</h4>
-      </div>
-      <div class="modal-body" style="margin-left:20px">
-        <ul class="list-unstyled user_info">
-          <li>
-            <label>艺名</label>
-            <a id="name"></a></li>
-          <li>
-            <label>性别</label>
-            <a id="sex"></a></li>
-          <li>
-            <label>地区</label>
-            <a id="site"></a></li>
-          <li>
-            <label>角色</label>
-            <a id="role"></a></li>
-          <li>
-            <label>电话</label>
-            <a id="phone"></a></li>
-          <li>
-            <label>邮箱</label>
-            <a id="email"></a></li>
-          <li>
-            <label>签约状态</label>
-            <a id="sign"></a></li>
-          <li style="height:80px; position:relative">
-            <label style="height:60px;">简介</label>
-            <p id="descs" style=" position:absolute; left:80px; top:0; height:60px; width:420px; color:#337ab7; "></p>
-          </li>
-        </ul>
-      </div>
-      <div class="modal-footer"><small class="pull-left mt5 text-info">提交后会在2个工作日内进行审核，审核通过后才能生效</small>
-        <button type="button" class="btn btn-default" data-dismiss="modal">重新编辑</button>
-        <button type="button" class="btn btn-primary" id="submit">提交</button>
-      </div>
-    </div>
-  </div>
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">个人资料</h4>
+			</div>
+			<div class="modal-body" style="margin-left:20px">
+				<ul class="list-unstyled user_info">
+					<li>
+						<label>艺名</label>
+						<a id="name"></a>
+					</li>
+					<li>
+						<label>性别</label>
+						<a id="sex"></a>
+					</li>
+					<li>
+						<label>地区</label>
+						<a id="site"></a>
+					</li>
+					<li>
+						<label>角色</label>
+						<a id="role"></a>
+					</li>
+					<li>
+						<label>电话</label>
+						<a id="phone"></a>
+					</li>
+					<li>
+						<label>邮箱</label>
+						<a id="email"></a>
+					</li>
+					<li>
+						<label>签约状态</label>
+						<a id="sign"></a>
+					</li>
+					<li style="height:80px; position:relative">
+						<label style="height:60px;">简介</label>
+						<p id="descs" style="position:absolute; left:80px; top:0; height:60px; width:420px; color:#337ab7;"></p>
+					</li>
+				</ul>
+			</div>
+			<div class="modal-footer"><small class="pull-left mt5 text-info">提交后会在2个工作日内进行审核，审核通过后才能生效</small>
+				<button type="button" class="btn btn-default" data-dismiss="modal">重新编辑</button>
+				<button type="button" class="btn btn-primary" id="submit">提交</button>
+			</div>
+		</div>
+	</div>
 </div>
-<!-- 确认框 --> 
-
-<!-- page --> 
 <script>
-	$(function(){
-		
-		var company_name = $("#company_name");
-		var company = $("#companys");
-		var input = $("input.input");
-		var indie = $("#indie");
-		var btn = $("#submit"); 
-		var check_form = $("#check_form");
-		var data = '';
-		window.input_focus(input);		
-		
-		$('[data-toggle="tooltip"]').tooltip()
-		indie.on("click", function(){
-			company_name.hide();
+	$(function() {
+		var $company_name = $("#company_name");
+		var $company = $("#companys");
+		var $input = $("input.input");
+		var $indie = $("#indie");
+		var $btn = $("#btn");
+		var $submit = $("#submit");
+		var $check_form = $("#check_form");
+		var $data = '';
+		window.input_focus(input);
+		$('[data-toggle="tooltip"]').tooltip();
+		$indie.on("click", function() {
+			$company_name.hide();
+			return false;
 		});
-		company.on("click", function(){
-			company_name.fadeIn();
+		$company.on("click", function() {
+			$company_name.fadeIn();
+			return false;
 		});
-		company_name.on("blur", function(){
-			if($(this).val() == ''){
-				indie.trigger("click");
+		$company_name.on("blur", function() {
+			if ($(this).val() == '') {
+				$indie.trigger("click");
 				return false;
-			}	
+			}
 		})
-		if(company.attr("checked")){
-			company_name.fadeIn();
+		if ($company.attr("checked")) {
+			$company_name.fadeIn();
 		}
-		
-		$("#btn").on("click", function(){
-			$("#alerts").hide();	
-			if(!window.input_validate(input)){
-				return false;	
+		$btn.on("click", function() {
+			$("#alerts").hide();
+			if (!window.input_validate(input)) {
+				return false;
 			}
 			data = {
-				"id": $("#username_input").attr("uid"),
-				"name": $("#name_input").val(),
-				"site": $("#sheng_input").find("option:selected").text()+$("#shi_input").find("option:selected").text(),
-				"sex": $(".sex_input:checked").val(),
-				"role": $(".role_input:checked").val(),
-				"phone": $("#phone_input").val(),
-				"email": $("#email_input").val(),
-				"sign": $(".sign_input:checked").val() != '' ? $(".sign_input:checked").val() : company_name.val(),
-				"desc":$("#desc").val().replace(/(^\s*)|(\s*$)/g, "")
+				"uid": $("#uid").val(),
+				"nickname": $("#nickname").val(),
+				"pos_province": $("#pos_province").find("option:selected").text(),
+				"pos_city": $("#pos_city").find("option:selected").text(),
+				"sex": $(".sex:checked").val(),
+				"u_role": $(".u_role:checked").val(),
+				"tel": $("#tel").val(),
+				"email": $("#email").val(),
+				"sig_status": $(".sig_status:checked").val() != '' ? $(".sig_status:checked").val() : $company_name.val(),
+				"signature": $("#signature").val().replace(/(^\s*)|(\s*$)/g, "")
 			}
 			$("#name").html(data["name"]);
-			$("#site").html(data["site"]);
+			$("#site").html(data["pos_province"]+data["pos_city"]);
 			$("#sex").html(data["sex"]);
-			$("#role").html(data["role"]);
-			$("#phone").html(data["phone"]);
+			$("#role").html(data["u_role"]);
+			$("#phone").html(data["tel"]);
 			$("#email").html(data["email"]);
 			$("#sign").html(data["sign"]);
-			$("#descs").html(data["desc"]);
+			$("#descs").html(data["signature"]);
 			$('#check_form').modal();
 			return false;
 		})
-		
-		btn.on("click", function(){
+		$submit.on("click", function() {
 			check_form.modal('hide')
 			window.btn_submit({
-				"btn": btn,
+				"btn": $submit,
 				"type": "post",
 				"data": data,
-				"url":"test.php",
-				"fnSuccess": function(data){
-					if(1){ //成功
-						window.result(1,"资料已经提交，我们将会尽快进行审核。","index.html#user_info");
+				"url": "test.php",
+				"fnSuccess": function(data) {
+					if (1) { //成功
+						window.result(1, "资料已经提交，我们将会尽快进行审核。", "index.html#user_info");
 						return false;
-					}else{ //失败
-						window.result(3,"修改失败");
+					} else { //失败
+						window.result(3, "修改失败");
 						return false;
 					}
 				},
 			})
-  
-			return false;		
+			return false;
 		})
-
-		
 	})
-</script> 
+</script>

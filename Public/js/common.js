@@ -1,6 +1,5 @@
 $(function(){
 
-	window.para = '?page=2232&id=23';
 	
 	window.result = function(status,text,url){  //反馈
 		$("html,body").animate({"scrollTop": 0}, "fast");
@@ -78,12 +77,12 @@ $(function(){
 			type: obj["type"],
 			url: obj["url"],
 			data: obj["data"],
-            dataType: obj['dataType'],
+			type: obj["type"],
 			beforeSend: function(){
 				btn.button('loading');
 			},
 			success: function(data){
-			  	obj["fnSuccess"]();
+			  	obj["fnSuccess"](data);
 			},
 			error: function(){ 
 				result(3,"网络出错了，请重试");

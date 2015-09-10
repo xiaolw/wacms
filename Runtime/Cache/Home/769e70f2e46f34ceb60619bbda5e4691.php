@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>音乐人合作</title>
-<link href="/oxwawa/Public/page/css/main.css" rel="stylesheet" type="text/css" />
+<link href="/wacms/Public/page/css/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div class="shade"></div>
 <div class="dlbg">
-	<div><img src="/oxwawa/Public/page/img/wawadl.png" /></div>
-    <div><img src="/oxwawa/Public/page/img/yuyindl.png" /></div>
+	<div><img src="/wacms/Public/page/img/wawadl.png" /></div>
+    <div><img src="/wacms/Public/page/img/yuyindl.png" /></div>
 </div>
 <div id="container" class="container">
   <div class="warp section bg1">
@@ -56,8 +56,8 @@
     <h1 class="title1">即刻，<a class="title3 transfrom" href="<?php echo U('Ucenter/Member/register');?>" title="加入音乐人合作">加入</a></h1>
   </div>
 </div>
-<script src="/oxwawa/Public/page/js/jquery-1.11.1.min.js"></script> 
-<script src="/oxwawa/Public/page/js/jquery.fullPage.min.js"></script>
+<script src="/wacms/Public/page/js/jquery-1.11.1.min.js"></script> 
+<script src="/wacms/Public/page/js/jquery.fullPage.min.js"></script>
 <script>
 $(function(){
 	var doc = $(document);

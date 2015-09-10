@@ -1,181 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>挖哇音乐人平台</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>挖哇音乐人平台</title>
 
-    <!-- Custom CSS -->
-    <link href="__PUBLIC__/css/sb-admin.css" rel="stylesheet">
+		<!-- Bootstrap Core CSS -->
+		<link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Morris Charts CSS 表格 -->
-    <!--<link href="css/plugins/morris.css" rel="stylesheet">-->
+		<!-- Custom CSS -->
+		<link href="__PUBLIC__/css/sb-admin.css" rel="stylesheet">
 
-    <!-- Custom Fonts -->
-    <link href="__PUBLIC__/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<!-- Custom Fonts -->
+		<link href="__PUBLIC__/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-      <!-- jQuery -->
-    <script src="__PUBLIC__/js/jquery.js"></script>
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="__PUBLIC__/js/bootstrap.js"></script>
+		<!-- jQuery -->
+		<script src="__PUBLIC__/js/jquery.js"></script>
 
-    <!-- common JavaScript -->
-    <script src="__PUBLIC__/js/common.js"></script>
-    <![endif]-->
+		<!-- Bootstrap Core JavaScript -->
+		<script src="__PUBLIC__/js/bootstrap.js"></script>
 
-</head>
+		<!-- common JavaScript -->
+		<script src="__PUBLIC__/js/common.js"></script>
+	</head>
 
-<body>
-<div id="wrapper">
+	<body>
+		<div id="wrapper">
 
-    <!-- 菜单 -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <!-- 响应式导航 -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-            <a class="navbar-brand logo" href="index.html">挖哇音乐人平台</a> </div>
-        <!-- 响应式导航 -->
-        <!-- 顶部导航 -->
-        <ul class="nav navbar-right top-nav">
-            <li class="dropdown"> <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><i class="fa fa-user"></i> 【{$Think.session.user_auth_username}】 <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li> <a id="user_info" href="user_info.html" class="href"><i class="fa fa-fw fa-user"></i> 个人资料</a> </li>
-                    <li> <a id="pwd_edit" href="pwd_edit.html" class="href"><i class="fa fa-fw fa-lock"></i> 修改密码</a> </li>
-                    <li> <a id="user_logout" href="{:U('Public/logout')}" ><i class="fa fa-fw fa-power-off"></i> 注销</a> </li>
-                </ul>
-            </li>
-        </ul>
-        <!-- 顶部导航 -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav side-nav" id="navs">
-                <li> <a id="main" href="main.html" class="href"><i class="fa fa-fw fa-dashboard"></i> 控制面板</a> </li>
-                <li> <a href="javascript:;" data-toggle="collapse" data-target="#music"><i class="fa fa-fw fa-music"></i> 音乐管理</a>
-                    <ul id="music" class="collapse">
-                        <li> <a id="music_add" href="music_add.html" class="href">发布音乐</a> </li>
-                        <li> <a id="music_list" href="music_list.html" class="href"> 音乐管理</a> </li>
-                    </ul>
-                </li>
-                <li> <a href="javascript:;"data-toggle="collapse" data-target="#info"><i class="fa fa-fw fa-bullhorn"></i> 公告服务</a>
-                    <ul id="info" class="collapse">
-                        <li> <a id="info_add" href="info_add.html" class="href">发布公告</a> </li>
-                        <li> <a id="info_list" href="info.list.html" class="href"> 公告管理</a> </li>
-                    </ul>
-                </li>
-                <li> <a href="javascript:;"data-toggle="collapse" data-target="#ads"><i class="fa fa-fw fa-desktop"></i> 广告服务</a>
-                    <ul id="ads" class="collapse">
-                        <li> <a id="ads_add" href="ads_add.html" class="href">发布广告</a> </li>
-                        <li> <a id="ads_list" href="ads_list.html" class="href"> 广告管理</a> </li>
-                    </ul>
-                </li>
-                <li> <a href="javascript:;"data-toggle="collapse" data-target="#data"><i class="fa fa-fw fa-bar-chart" class="href"></i> 数据统计</a>
-                    <ul id="data" class="collapse">
-                        <li> <a id="musics_data" href="musics_data.html" class="href"> 音乐播放量</a> </li>
-                        <li> <a id="music_data" href="music_data.html" class="href"> 单曲播放量</a> </li>
-                        <li> <a id="info_data" href="info_data.html" class="href"> 公告浏览量</a> </li>
-                        <li> <a id="ads_data" href="ads_data.html" class="href"> 广告浏览量</a> </li>
-                    </ul>
-                </li>
-                <li> <a id="account" href="account.html"  class="href"><i class="fa fa-fw fa-rmb" class="href"></i> 结算管理</a> </li>
-            </ul>x
-        </div>
-        <!-- 侧边栏 -->
-    </nav>
-    <!-- 菜单 -->
+			<!-- 菜单 -->
+			<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+				<!-- 响应式导航 -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+					<a class="navbar-brand logo" href="{:U('Index/index')}" title="1">挖哇音乐人平台</a> </div>
+				<!-- 响应式导航 -->
+				<!-- 顶部导航 -->
+				<ul class="nav navbar-right top-nav">
+					<li class="dropdown"> <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><i class="fa fa-user"></i> 【{$Think.session.user_auth_username}】 <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li> <a id="userinfo" href="{:U('Index/userinfo')}"><i class="fa fa-fw fa-user"></i> 个人资料</a> </li>
+							<li> <a id="updatepassword" href="{:U('Index/updatepassword')}"><i class="fa fa-fw fa-lock"></i> 修改密码</a> </li>
+							<li> <a id="userlogout" href="{:U('Public/logout')}"><i class="fa fa-fw fa-power-off"></i> 注销</a> </li>
+						</ul>
+					</li>
+				</ul>
+				<!-- 顶部导航 -->
+				<div class="collapse navbar-collapse navbar-ex1-collapse">
+					<ul class="nav navbar-nav side-nav" id="navs">
+						<li> <a id="index" href="{:U('Index/index')}" class="link"><i class="fa fa-fw fa-dashboard"></i> 控制面板</a> </li>
+						<li> <a href="javascript:;" data-toggle="collapse" data-target="#music"><i class="fa fa-fw fa-music"></i> 音乐管理</a>
+							<ul id="music" class="collapse">
+								<li> <a id="trackadd" href="{:U('Index/trackadd')}" class="link">发布音乐</a> </li>
+								<li> <a id="tracklist" href="{:U('Index/tracklist')}" class="link"> 音乐管理</a> </li>
+							</ul>
+						</li>
+						<li> <a href="javascript:;" data-toggle="collapse" data-target="#info"><i class="fa fa-fw fa-bullhorn"></i> 公告服务</a>
+							<ul id="info" class="collapse">
+								<li> <a id="noticeadd" href="{:U('Index/noticeadd')}" class="link">发布公告</a> </li>
+								<li> <a id="noticelist" href="{:U('Index/noticelist')}" class="link"> 公告管理</a> </li>
+							</ul>
+						</li>
+						<li> <a href="javascript:;" data-toggle="collapse" data-target="#ads"><i class="fa fa-fw fa-desktop"></i> 广告服务</a>
+							<ul id="ads" class="collapse">
+								<li> <a id="advertadd" href="{:U('Index/advertadd')}" class="link">发布广告</a> </li>
+								<li> <a id="advertlist" href="{:U('Index/advertlist')}" class="link"> 广告管理</a> </li>
+							</ul>
+						</li>
+						<li> <a href="javascript:;" data-toggle="collapse" data-target="#data"><i class="fa fa-fw fa-bar-chart" class="href"></i> 数据统计</a>
+							<ul id="data" class="collapse">
+								<li> <a id="trackscount" href="{:U('Index/trackscount')}" class="link"> 音乐播放量</a> </li>
+								<li> <a id="trackcount" href="{:U('Index/trackcount')}" class="link"> 单曲播放量</a> </li>
+								<li> <a id="noticecount" href="{:U('Index/noticecount')}" class="link"> 公告浏览量</a> </li>
+								<li> <a id="advertcount" href="{:U('Index/advertcount')}" class="link"> 广告浏览量</a> </li>
+							</ul>
+						</li>
+						<li> <a id="account" href="{:U('Index/account')}" class="link"><i class="fa fa-fw fa-rmb" class="href"></i> 结算管理</a> </li>
+					</ul>
+				</div>
+				<!-- 侧边栏 -->
+			</nav>
+			<!-- 菜单 -->
 
-    <!-- 内容 -->
-    <div id="page-wrapper">
-        <div id="page" class="container-fluid">
+			<!-- 内容 -->
+			<div id="page-wrapper">
+				<div id="page" class="container-fluid"></div>
+				{__CONTENT__}
+			</div>
+			<!-- 内容 -->
 
+			<script>
+				$(function() {
+					var url = window.location.href;
+					var page = url.replace(/(.*\/)*([^.]+).*/ig, "$2");
+					$("a.link").each(function(index) {
+						var that = $(this);
+						if (that.attr("id") == "account") {
+							that.parent("li").addClass("curs").parent("ul").addClass("in");
+							return false;
+						}
+					});
+				})
+			</script>
+	</body>
 
-            {__CONTENT__}
-        </div>
-    </div>
-    <!-- 内容 -->
-
-
-    <script>
-
-        function logout(){
-            alert('logout');
-        }
-
-        $(function(){
-            var page = $("#page");
-            var href = $("a.href");
-            var lastpage = 'main';
-            var navs = $("#navs");
-            var bodyh = $("html,body");
-
-            var url = {
-                "main": "{:U('Index/index')}",
-                "music_add": "{:U('Index/trackAdd')}",
-                "music_edit": "{:U('Index/trackEdit')}",
-                "music_list": "{:U('Index/trackList')}",
-                "info_add": "{:U('Index/noticeAdd')}",
-                "info_list": "{:U('Index/noticeList')}",
-                "ads_add": "{:U('Index/adAdd')}",
-                "ads_list": "{:U('Index/addList')}",
-                "music_data": "{:U('Index/trackCountList')}",
-                "musics_data": "{:U('Index/tracksCountList')}",
-                "ads_data": "{:U('Index/adCount')}",
-                "info_data": "{:U('Index/noticeCount')}",
-                "account": "{:U('Index/trackAdd')}",
-                "user_info": "{:U('Index/trackAdd')}",
-                "user_edit": "{:U('Index/trackAdd')}",
-                "pwd_edit": "{:U('Index/updatePassword')}"
-            }
-
-            var hash = location.hash != '' ? location.hash.substring(1) : "main";
-            route(hash);
-
-            $(document).on("click", "a.href", function(){
-                var key = $(this).attr('id');
-                var target = url[key];
-                window.location.href = target;
-                alert("{$tag}");
-                $(".dropdown").removeClass("open");
-                return false;
-            })
-
-            page.load(lastpage);
-
-            $(window).on('hashchange', function() {
-                //page.load(url[location.hash.substring(1)]);
-            });
-
-            /*	if (window.history && window.history.pushState) {
-             //url(location.hash);
-             alert(location.hash)
-             return false;
-             }*/
-
-            function route(hash){
-//                navs.find("li").removeClass("curs");
-//                bodyh.animate({"scrollTop": 0}, "fast");
-//                $("#"+hash).parent("li").addClass("curs").parent("ul").addClass("in");
-//                lastpage = url[hash];
-//
-//                location.hash = hash;
-
-            }
-
-
-        })
-    </script>
-
-    <!-- Morris Charts JavaScript 表格 -->
-    <!--<script src="js/plugins/morris/raphael.min.js"></script> -->
-    <!--<script src="js/plugins/morris/morris.min.js"></script> -->
-    <!--<script src="js/plugins/morris/morris-data.js"></script>-->
-</body>
 </html>

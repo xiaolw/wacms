@@ -7,8 +7,8 @@
 </head>
 <body>
 
-<link href="/oxwawa/Public/page/css/main.css" rel="stylesheet" type="text/css" />
-<script src="/oxwawa/Public/page/js/jquery-1.11.1.min.js"></script>
+<link href="/wacms/Public/page/css/main.css" rel="stylesheet" type="text/css" />
+<script src="/wacms/Public/page/js/jquery-1.11.1.min.js"></script>
 <div class="main">
     <h1 class="title4"> 欢迎回来<br/>
         现在登录 </h1>
